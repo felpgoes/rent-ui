@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Routes from './routes';
+import GlobalStyle from './styles/global';
 
-function App() {
+import Toast from './components/molecules/Toast';
+import CustomScrollBars from './components/molecules/CustomScrollBars';
+import NavbarPrimary from './components/organisms/NavbarPrimary';
+
+const App = () => {
+  const { loggedIn } = useSelector((state) => state.auth);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CustomScrollBars
+        autoHide
+        autoHideTimeout={1000}
+        autoHideDuration={200}
+        thumbMinSize={30}
+        universal
+        autoHeight
+        autoHeightMin={0}
+        autoHeightMax={650}
+      >
+        {loggedIn && <NavbarPrimary />}
+        <GlobalStyle />
+        <Routes />
+        <Toast autoClose={5000} />
+      </CustomScrollBars>
+    </>
   );
-}
+};
 
 export default App;
