@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.label`
   text-align: left;
-  font: 300 15px 'Calibri';
+  font: 300 15px Calibri;
   letter-spacing: 0.52px;
 
   opacity: 1;
