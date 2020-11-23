@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { routes } from './routes';
 import ProtectedRoute from './ProtectedRoute';
 import SingUp from '../pages/SignUp';
@@ -20,6 +20,7 @@ const Routes = () => {
         ))}
         <Route exact path="/signup" component={SingUp} />
         <Route exact path="/login" component={SignIn} />
+        <Redirect from="/" to="/login" />
       </Switch>
     </>
   );

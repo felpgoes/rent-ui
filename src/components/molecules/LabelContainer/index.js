@@ -34,7 +34,6 @@ function LabelContainer({
         display={displayText}
         color={null}
         marginTop="9px"
-        type="headlineOne"
       />
       {children}
     </Container>
